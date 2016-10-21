@@ -6,6 +6,7 @@ import botocore
 
 action = sys.argv[1]
 bucket_name = sys.argv[2]
+file_name = sys.argv[3]
 
 s3_client = boto3.client('s3')
 
@@ -27,4 +28,4 @@ if action == 'delete-bucket':
 
 if action == 'upload-object':
     print("Uploading object")
-    s3_resource.meta.client.upload_file('/tmp/hello.txt', bucket_name, 'hello.txt') 
+    s3_resource.meta.client.upload_file(file_name, bucket_name, file_name) 
